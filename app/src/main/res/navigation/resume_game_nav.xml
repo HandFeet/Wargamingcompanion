@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/resume_game_nav"
+    app:startDestination="@id/resumeGameSelectorFragment3">
+    <fragment
+        android:id="@+id/resumeGameSelectorFragment3"
+        android:name="co.uk.outlook.davidslambert.warcompanion.presention.gameselectorbase.resumegameselector.ResumeGameSelectorFragment"
+        android:label="ResumeGameSelectorFragment" />
+</navigation>
