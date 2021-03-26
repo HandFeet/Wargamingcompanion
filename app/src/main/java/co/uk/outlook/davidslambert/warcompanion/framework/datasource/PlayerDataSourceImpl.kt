@@ -14,8 +14,7 @@ class PlayerDataSourceImpl(context: Context) : PlayerDataSource {
     @Inject
     lateinit var databaseService : DatabaseService
 
-    @Inject
-    lateinit var playerMapper : PlayerMapper
+    private val playerMapper = PlayerMapper()
 
     init {
         DaggerGameComponent

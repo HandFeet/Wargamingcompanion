@@ -13,6 +13,7 @@ import co.uk.outlook.davidslambert.usecases.setup.GetGame
 import co.uk.outlook.davidslambert.usecases.setup.ValidatePlayerAction
 import co.uk.outlook.davidslambert.warcompanion.framework.datasource.GameDataSourceImpl
 import co.uk.outlook.davidslambert.warcompanion.framework.datasource.PlayerDataSourceImpl
+import co.uk.outlook.davidslambert.warcompanion.framework.viewmodels.Event
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,6 +34,7 @@ class PlayerViewpagerViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     val validationResult = MutableLiveData<Pair<Int, ValidationData>>()
+    val added = MutableLiveData<Event<Boolean>>()
 
     fun validate(players : Map<Int, PlayerData>) {
         coroutine.launch {
@@ -48,8 +50,10 @@ class PlayerViewpagerViewModel(app: Application) : AndroidViewModel(app) {
                 players.entries.forEach {
                     savePlayerAction.invoke(it.value)
                 }
+                added.postValue(Event(true))
             }
         }
     }
+
 
 }

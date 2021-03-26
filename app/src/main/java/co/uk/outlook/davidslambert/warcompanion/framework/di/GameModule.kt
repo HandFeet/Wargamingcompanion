@@ -11,12 +11,6 @@ import dagger.Provides
 class GameModule(val application : Context) {
 
     @Provides
-    fun providesGameMapper() = GameMapper()
-
-    @Provides
-    fun providesPlayerMapper() = PlayerMapper()
-
-    @Provides
     fun providesDatabaseService() = DatabaseService.getInstance(application)
 
 }

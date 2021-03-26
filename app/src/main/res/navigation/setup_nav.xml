@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/addGame"
-        android:name="co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.AddGameFragment"
+        android:name="co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.gamecreation.AddGameFragment"
         android:label="fragment_add_game"
         tools:layout="@layout/fragment_add_game" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/playerViewpagerFragment"
-        android:name="co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.PlayerViewpagerFragment"
+        android:name="co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.playercreation.PlayerViewpagerFragment"
         android:label="fragment_player_viewpager"
         tools:layout="@layout/fragment_player_viewpager" >
         <argument

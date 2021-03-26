@@ -1,18 +1,17 @@
- package co.uk.outlook.davidslambert.warcompanion.presention.setup.ui
+ package co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.gamecreation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.Navigation
 import co.uk.outlook.davidslambert.data.setup.model.GameData
 import co.uk.outlook.davidslambert.warcompanion.R
 import co.uk.outlook.davidslambert.warcompanion.extensions.getLongNoNulls
 import co.uk.outlook.davidslambert.warcompanion.framework.viewmodels.setup.AddGameViewModel
-import co.uk.outlook.davidslambert.warcompanion.presention.setup.di.DaggerSetUpComponent
-import co.uk.outlook.davidslambert.warcompanion.presention.setup.di.SetUpModule
+import co.uk.outlook.davidslambert.warcompanion.presention.di.DaggerViewModelComponent
+import co.uk.outlook.davidslambert.warcompanion.presention.di.ViewModelModule
 import kotlinx.android.synthetic.main.fragment_add_game.*
 import java.util.*
 import javax.inject.Inject
@@ -22,8 +21,7 @@ class AddGameFragment : Fragment() {
     @Inject
     lateinit var viewModel : AddGameViewModel
 
-    @Inject
-    lateinit var data : GameData
+    var data =   GameData("", false, Date(), 0)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +32,8 @@ class AddGameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DaggerSetUpComponent.builder().setUpModule(SetUpModule(this)).build().inject(this)
+        DaggerViewModelComponent.builder().viewModelModule(
+            ViewModelModule(this)).build().inject(this)
         setClickListeners()
         setObservers()
     }

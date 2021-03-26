@@ -1,4 +1,4 @@
-package co.uk.outlook.davidslambert.warcompanion.presention.setup.ui
+package co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.playercreation
 
 import android.os.Bundle
 import android.view.LayoutInflater
