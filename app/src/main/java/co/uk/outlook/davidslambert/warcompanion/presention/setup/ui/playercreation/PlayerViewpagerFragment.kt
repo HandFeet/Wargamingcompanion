@@ -1,6 +1,7 @@
 package co.uk.outlook.davidslambert.warcompanion.presention.setup.ui.playercreation
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,11 @@ import androidx.lifecycle.Observer
 import co.uk.outlook.davidslambert.data.setup.model.PlayerData
 import co.uk.outlook.davidslambert.warcompanion.R
 import co.uk.outlook.davidslambert.warcompanion.framework.viewmodels.setup.PlayerViewpagerViewModel
+import co.uk.outlook.davidslambert.warcompanion.presention.IntentKeys
 import co.uk.outlook.davidslambert.warcompanion.presention.di.DaggerViewModelComponent
 import co.uk.outlook.davidslambert.warcompanion.presention.di.ViewModelModule
+import co.uk.outlook.davidslambert.warcompanion.presention.game.GameActivity
+import co.uk.outlook.davidslambert.warcompanion.presention.gameselectorbase.completegameselector.CompleteGameSelectorActivity
 import kotlinx.android.synthetic.main.fragment_player_viewpager.*
 import javax.inject.Inject
 
@@ -37,8 +41,19 @@ class PlayerViewpagerFragment : Fragment() {
         injectModule()
         setOnGameLoaded()
         setOnValidateResult()
+        setOnAdd()
         setOnConfirmClickListener()
     }
+    private fun setOnAdd() {
+        viewModel.added.observe(viewLifecycleOwner, {
+           if (!it.hasBeenHandled) {
+               val intent = Intent(context, GameActivity::class.java)
+               intent.putExtra(IntentKeys.GAME_ID, viewModel.data.value!!.id)
+               startActivity(intent)
+           }
+        })
+    }
+
     private fun injectModule() = DaggerViewModelComponent
         .builder()
         .viewModelModule(ViewModelModule(this))
