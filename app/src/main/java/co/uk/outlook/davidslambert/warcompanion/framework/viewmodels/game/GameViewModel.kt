@@ -18,9 +18,8 @@ import kotlinx.coroutines.launch
 class GameViewModel(app : Application) : AndroidViewModel(app) {
 
     private val coroutine = CoroutineScope(Dispatchers.IO)
-    private var playerRepository = PlayerRepository(PlayerDataSourceImpl(getApplication()))
     private val getGame = GetGame(GameRepository(GameDataSourceImpl(getApplication())))
-    private val getPlayers = GetPlayers(playerRepository)
+    private val getPlayers = GetPlayers(PlayerRepository(PlayerDataSourceImpl(getApplication())))
 
     private val gameObservable = MutableLiveData<GameData>()
     private val playersObservable = MutableLiveData<List<PlayerData>>()
