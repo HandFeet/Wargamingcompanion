@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import co.uk.outlook.davidslambert.data.setup.model.GameData
+import co.uk.outlook.davidslambert.data.setup.model.PlayerData
+import co.uk.outlook.davidslambert.data.setup.repositories.GameDataSource
+import co.uk.outlook.davidslambert.data.setup.repositories.GameRepository
 import co.uk.outlook.davidslambert.warcompanion.R
+import co.uk.outlook.davidslambert.warcompanion.framework.viewmodels.game.GameViewModel
 
 class GameFragment : Fragment() {
-    companion object {
-        fun newInstance() = GameFragment()
-    }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: GameViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,9 +24,9 @@ class GameFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
     }
+
 }

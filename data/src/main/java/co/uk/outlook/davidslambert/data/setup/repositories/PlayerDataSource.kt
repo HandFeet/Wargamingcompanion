@@ -12,4 +12,5 @@ interface PlayerDataSource {
 
     fun getAll(): List<PlayerData>
 
+    fun getAllForGame(id: Long): List<PlayerData>
 }

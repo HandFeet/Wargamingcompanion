@@ -39,4 +39,7 @@ class PlayerDataSourceImpl(context: Context) : PlayerDataSource {
     override fun getAll(): List<PlayerData> {
         return databaseService.playerDao().getAll().map { playerMapper.to(it) }
     }
+    override fun getAllForGame(id: Long): List<PlayerData> {
+        return databaseService.playerDao().getAllForGame(id)
+    }
 }

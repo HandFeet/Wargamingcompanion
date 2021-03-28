@@ -1,0 +1,16 @@
+The rough structure of the code goes
+
+    app < - - - - - - -   framework
+     |                        ^
+     V                        |
+   usecases                  data
+     |                        ^
+     |                        |
+     - - - - - > Domain - - - -
+
+
+Items on the same line are in the same layer and are allowed dependencies in them,
+A dependency can not exist on the layer below but will exist on layers above.
+
+This is too allow flexibility in changing more dynamic areas without effecting the more static
+code

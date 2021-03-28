@@ -15,7 +15,6 @@ import co.uk.outlook.davidslambert.warcompanion.presention.IntentKeys
 import co.uk.outlook.davidslambert.warcompanion.presention.di.DaggerViewModelComponent
 import co.uk.outlook.davidslambert.warcompanion.presention.di.ViewModelModule
 import co.uk.outlook.davidslambert.warcompanion.presention.game.GameActivity
-import co.uk.outlook.davidslambert.warcompanion.presention.gameselectorbase.completegameselector.CompleteGameSelectorActivity
 import kotlinx.android.synthetic.main.fragment_player_viewpager.*
 import javax.inject.Inject
 
@@ -31,7 +30,6 @@ class PlayerViewpagerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_player_viewpager, container, false)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUp()

@@ -15,4 +15,5 @@ class PlayerRepository(val dataSource : PlayerDataSource) {
 
     fun remove(player : PlayerDomain) = dataSource.remove(playerMapper.to(player))
 
+    fun getAllForGame(id : Long): List<PlayerDomain> = dataSource.getAllForGame(id).map { playerMapper.to(it) }
 }
