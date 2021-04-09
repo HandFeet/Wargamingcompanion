@@ -23,6 +23,6 @@ interface PlayerDao {
     @Delete
     fun remove(playerEntity: PlayerEntity)
 
-    @Query(value = "SELECT * FROM player WHERE gameId = id")
+    @Query(value = "SELECT * FROM player WHERE gameId = :id")
     fun getAllForGame(id: Long): List<PlayerData>
 }

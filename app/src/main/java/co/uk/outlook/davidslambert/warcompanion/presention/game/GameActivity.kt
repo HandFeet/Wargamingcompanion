@@ -10,9 +10,9 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_activity)
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
+            /*supportFragmentManager.beginTransaction()
                 .replace(R.id.container, GameFragment.newInstance())
-                .commitNow()
+                .commitNow()*/
         }
     }
 }
