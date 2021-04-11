@@ -6,8 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import co.uk.outlook.davidslambert.warcompanion.framework.models.GameEntity
 import co.uk.outlook.davidslambert.warcompanion.framework.models.PlayerEntity
+import co.uk.outlook.davidslambert.warcompanion.framework.models.TurnEntity
 
-@Database(entities = [GameEntity::class, PlayerEntity::class], version = 1, exportSchema = false)
+@Database(entities = [GameEntity::class, PlayerEntity::class, TurnEntity::class], version = 1, exportSchema = false)
 abstract class DatabaseService : RoomDatabase() {
 
     companion object {
@@ -29,5 +30,7 @@ abstract class DatabaseService : RoomDatabase() {
     abstract fun gameDao() : GameDao
 
     abstract fun playerDao() : PlayerDao
+
+    abstract fun turnDao() : TurnDao
 
 }
